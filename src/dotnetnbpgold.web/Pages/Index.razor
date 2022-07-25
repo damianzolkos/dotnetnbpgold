@@ -5,3 +5,19 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@if (!string.IsNullOrEmpty(prices)) {
+    <p>@prices</p>
+}
+
+@inject IGoldPriceService GoldPriceService
+@using dotnetnbpgold.web.Services
+
+@code {
+    private string? prices;
+
+    protected override async Task OnInitializedAsync()
+    {
+        prices = await GoldPriceService.GetGoldPricesAsync(DateTime.Now.AddDays(-2), DateTime.Now);
+    }
+}

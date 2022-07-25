@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using dotnetnbpgold.web.Services;
+using dotnetnbpgold.nbp.client.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-// builder.Services.AddDotNetNBPGoldClient();
+builder.Services.AddDotNetNBPGoldClient(o => { o.ApiUrl = "http://api.nbp.pl/api/cenyzlota/";});
+builder.Services.AddTransient<IGoldPriceService, GoldPriceService>();
 
 var app = builder.Build();
 

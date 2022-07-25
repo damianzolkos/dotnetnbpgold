@@ -3,15 +3,17 @@ using dotnetnbpgold.nbp.client.Helpers;
 using dotnetnbpgold.nbp.client.Models.NBP.Responses;
 using dotnetnbpgold.nbp.client.Settings;
 
+using Microsoft.Extensions.Options;
+
 namespace dotnetnbpgold.nbp.client
 {
     public class DotNetNBPGoldClient : IDotNetNBPGoldClient
     {
         private readonly DotNetNBPGoldClientSettings _settings;
 
-        public DotNetNBPGoldClient(DotNetNBPGoldClientSettings settings)
+        public DotNetNBPGoldClient(IOptions<DotNetNBPGoldClientSettings> settings)
         {
-            _settings = settings;
+            _settings = settings.Value;
         }
 
         public async Task<List<NBPGoldDatePriceResponse>> GetGoldPricesAsync(DateTime startDate, DateTime endDate)

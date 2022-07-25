@@ -38,7 +38,7 @@ namespace dotnetnbpgold.nbp.client
 
         private string GetGetGoldPricesUrl(DateTime startDate, DateTime endDate)
         {
-            return $"{_settings.ApiUrl}{startDate}/{endDate}";
+            return $"{_settings.ApiUrl}{startDate}/{endDate}?format=json";
         }
     }      
 }

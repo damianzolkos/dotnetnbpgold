@@ -1,23 +1,49 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<div class="mt-5">
+    <div class="form-floating mb-3">
+        <input type="date" class="form-control" placeholder="" @bind="startDate">
+        <label for="floatingInput">Start date</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="date" class="form-control" placeholder="" @bind="endDate">
+        <label for="floatingInput">End date</label>
+    </div>
+    <button class="btn btn-primary w-100" @onclick="GetPrices">Get</button>
+</div>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-@if (!string.IsNullOrEmpty(prices)) {
-    <p>@prices</p>
+@if (model is not null && !isLoading)
+{
+    <div class="mt-4 card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item py-3">Start date price: @model.StartDateGoldPrice.Price</li>
+            <li class="list-group-item py-3">End date price: @model.EndDateGoldPrice.Price</li>
+            <li class="list-group-item py-3">Average price: @model.Average</li>
+        </ul>
+    </div>
+}
+@if (isLoading) {
+    <div class="d-flex justify-content-center mt-5">
+        <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
 }
 
 @inject IGoldPriceService GoldPriceService
 @using dotnetnbpgold.web.Services
+@using dotnetnbpgold.web.Models.ViewModels
 
 @code {
-    private string? prices;
+    private GoldPriceViewModel? model;
+    private DateTime startDate = DateTime.Now;
+    private DateTime endDate = DateTime.Now;
+    private bool isLoading = false;
 
-    protected override async Task OnInitializedAsync()
+    private async Task GetPrices()
     {
-        prices = await GoldPriceService.GetGoldPricesAsync(DateTime.Now.AddDays(-2), DateTime.Now);
+        isLoading = true;
+        model = await GoldPriceService.GetForViewAsync(startDate, endDate);
+        isLoading = false;
     }
 }

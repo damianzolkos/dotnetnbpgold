@@ -16,11 +16,13 @@ namespace dotnetnbpgold.nbp.client
 
         public async Task<List<NBPGoldDatePriceResponse>> GetGoldPricesAsync(DateTime startDate, DateTime endDate)
         {
-            if (startDate < new DateTime(2013, 1, 2)) {
+            if (startDate < new DateTime(2013, 1, 2))
+            {
                 throw new DotNetNBPGoldClientException(""); // TODO: add propper exception
             }
 
-            if ((endDate - startDate).Days > 93) {
+            if ((endDate - startDate).Days > 93)
+            {
                 throw new DotNetNBPGoldClientException(""); // TODO: add propper exception
             }
 

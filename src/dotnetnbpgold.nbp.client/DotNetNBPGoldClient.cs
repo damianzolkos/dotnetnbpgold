@@ -29,18 +29,20 @@ namespace dotnetnbpgold.nbp.client
             }
 
             string url = GetGetGoldPricesUrl(startDate, endDate);
-            List<NBPGoldDatePriceResponse>? goldPrices = await HttpHelpers.HttpGetAsync<List<NBPGoldDatePriceResponse>>(url);
+            List<NBPGoldDatePriceResponse> goldPrices = await HttpHelpers.HttpGetAsync<List<NBPGoldDatePriceResponse>>(url);
 
-            if (goldPrices is null)
-            {
-                return new();
-            }
             return goldPrices;
         }
 
         private string GetGetGoldPricesUrl(DateTime startDate, DateTime endDate)
         {
-            return $"{_settings.ApiUrl}{startDate}/{endDate}?format=json";
+            return $"{_settings.ApiUrl}{ParseDate(startDate)}/{ParseDate(endDate)}?format=json";
+        }
+
+        // TODO: move this to DateTime extension method
+        private string ParseDate(DateTime date)
+        {
+            return date.ToString("yyyy-MM-dd");
         }
     }      
 }

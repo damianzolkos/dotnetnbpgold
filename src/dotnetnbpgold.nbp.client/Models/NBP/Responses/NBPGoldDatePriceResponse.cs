@@ -1,8 +1,13 @@
+using System.Text.Json.Serialization;
+
 namespace dotnetnbpgold.nbp.client.Models.NBP.Responses
 {
     public class NBPGoldDatePriceResponse
     {
-        public string? Data { get; set; }
-        public decimal Cena { get; set; }
+        [JsonPropertyName("data")]
+        public string Date { get; set; }
+
+        [JsonPropertyName("cena")]
+        public decimal Price { get; set; }
     }
 }

@@ -1,7 +1,5 @@
 using System.Text.Json;
-
 using dotnetnbpgold.nbp.client.Exceptions;
-using dotnetnbpgold.nbp.client.Models.NBP.Responses;
 
 namespace dotnetnbpgold.nbp.client.Helpers
 {

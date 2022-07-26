@@ -20,17 +20,22 @@ namespace dotnetnbpgold.nbp.client
         {
             if (startDate.Date > DateTime.Now.Date)
             {
-                throw new DotNetNBPGoldClientException(""); // TODO: add propper exception
+                throw new DotNetNBPGoldClientException("Start date cannot be in the future."); // TODO: add propper exception
+            }
+
+            if (endDate.Date > DateTime.Now.Date)
+            {
+                throw new DotNetNBPGoldClientException("End date cannot be in the future."); // TODO: add propper exception
             }
 
             if (startDate < new DateTime(2013, 1, 2))
             {
-                throw new DotNetNBPGoldClientException(""); // TODO: add propper exception
+                throw new DotNetNBPGoldClientException("Start date cannot be before 1st of January 2013"); // TODO: add propper exception
             }
 
             if ((endDate - startDate).Days > 93)
             {
-                throw new DotNetNBPGoldClientException(""); // TODO: add propper exception
+                throw new DotNetNBPGoldClientException($"Maximum period is 93 days, you selected {(endDate - startDate).Days} days"); // TODO: add propper exception
             }
 
             string url = GetGetGoldPricesUrl(startDate, endDate);

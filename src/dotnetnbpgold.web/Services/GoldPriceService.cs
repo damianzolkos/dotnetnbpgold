@@ -27,18 +27,25 @@ namespace dotnetnbpgold.web.Services
 
         public async Task<GoldPriceViewModel> GetForViewAsync(DateTime startDate, DateTime endDate)
         {
-            var prices = await GetGoldPricesAsync(startDate, endDate);
-            
-            // TODO: add null check and devision by zero check.
-            var startDateGoldPrice = prices.FirstOrDefault();
-            var endDateGoldPrice = prices.LastOrDefault();
-            var average = Math.Round(prices.Sum(x => x.Price) / prices.Count, 2);
+            try
+            {
+                var prices = await GetGoldPricesAsync(startDate, endDate);
+                
+                // TODO: add null check and devision by zero check.
+                var startDateGoldPrice = prices.FirstOrDefault();
+                var endDateGoldPrice = prices.LastOrDefault();
+                var average = Math.Round(prices.Sum(x => x.Price) / prices.Count, 2);
 
-            return new GoldPriceViewModel() {
-                StartDateGoldPrice = startDateGoldPrice,
-                EndDateGoldPrice = endDateGoldPrice,
-                Average = average
-            };
+                return new() {
+                    StartDateGoldPrice = startDateGoldPrice,
+                    EndDateGoldPrice = endDateGoldPrice,
+                    Average = average
+                };
+            }
+            catch (Exception e)
+            {
+                return new() { ErrorMessage = e.Message };
+            }
         }
     }
 }

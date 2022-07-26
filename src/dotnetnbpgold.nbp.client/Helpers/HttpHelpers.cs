@@ -5,7 +5,7 @@ namespace dotnetnbpgold.nbp.client.Helpers
 {
     internal static class HttpHelpers
     {
-        internal static async Task<T?> HttpGetAsync<T>(string url)
+        internal static async Task<T> HttpGetAsync<T>(string url)
         {
             var httpClient = new HttpClient();
             var response  = await httpClient.GetAsync(url);

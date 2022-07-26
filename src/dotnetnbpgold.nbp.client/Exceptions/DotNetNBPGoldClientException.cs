@@ -6,7 +6,7 @@ namespace dotnetnbpgold.nbp.client.Exceptions
         {
         }
 
-        public DotNetNBPGoldClientException(string? message) : base(message)
+        public DotNetNBPGoldClientException(string message) : base(message)
         {
         }
     }

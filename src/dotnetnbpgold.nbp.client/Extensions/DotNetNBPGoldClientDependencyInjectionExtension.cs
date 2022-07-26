@@ -7,7 +7,7 @@ namespace dotnetnbpgold.nbp.client.Extensions
     {
         public static void AddDotNetNBPGoldClient(
             this IServiceCollection services,
-            Action<DotNetNBPGoldClientSettings>? options = null) 
+            Action<DotNetNBPGoldClientSettings> options = null) 
         {
            services.Configure(options);
            services.AddTransient<IDotNetNBPGoldClient, DotNetNBPGoldClient>();

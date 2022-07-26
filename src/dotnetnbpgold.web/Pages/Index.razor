@@ -12,7 +12,7 @@
     <button class="btn btn-primary w-100" @onclick="GetPrices">Get</button>
 </div>
 
-@if (model is not null && !isLoading)
+@if (model is not null && !isLoading && string.IsNullOrEmpty(model.ErrorMessage))
 {
     <div class="mt-4 card">
         <ul class="list-group list-group-flush">
@@ -30,12 +30,19 @@
     </div>
 }
 
+@if (model is not null && !string.IsNullOrEmpty(model.ErrorMessage))
+{
+    <div class="d-flex justify-content-center mt-5">
+        <p class="text-danger">@model.ErrorMessage</p>
+    </div>
+}
+
 @inject IGoldPriceService GoldPriceService
 @using dotnetnbpgold.web.Services
 @using dotnetnbpgold.web.Models.ViewModels
 
 @code {
-    private GoldPriceViewModel? model;
+    private GoldPriceViewModel model;
     private DateTime startDate = DateTime.Now;
     private DateTime endDate = DateTime.Now;
     private bool isLoading = false;

@@ -2,6 +2,7 @@ using dotnetnbpgold.web.Services;
 using dotnetnbpgold.nbp.client.Extensions;
 using dotnetnbpgold.db;
 using Microsoft.EntityFrameworkCore;
+using dotnetnbpgold.db.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddDotNetNBPGoldClient();
+builder.Services.AddTransient<IGoldPriceRepository, GoldPriceRepository>();
 builder.Services.AddTransient<IGoldPriceService, GoldPriceService>();
 
 builder.Services.AddDbContext<DBContext>(opt => opt.UseInMemoryDatabase(databaseName: "DotNetNBPGold"));

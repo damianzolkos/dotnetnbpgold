@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\dotnetnbpgold.nbp.client\dotnetnbpgold.nbp.client.csproj" />
+    <ProjectReference Include="..\dotnetnbpgold.db\dotnetnbpgold.db.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

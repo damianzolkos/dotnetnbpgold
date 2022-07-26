@@ -31,10 +31,12 @@ namespace dotnetnbpgold.web.Services
                 var prices = await GetGoldPricesAsync(startDate, endDate);
                 
                 // TODO: add null check and devision by zero check.
+                // maybe throw exception (?)
                 var startDateGoldPrice = prices.FirstOrDefault();
                 var endDateGoldPrice = prices.LastOrDefault();
                 var average = Math.Round(prices.Sum(x => x.Price) / prices.Count, 2);
 
+                // TODO: Create a new service for handling DB and JSON file data saving.
                 await AddToDatebaseAsync(startDate, endDate, average);
 
                 return new() {

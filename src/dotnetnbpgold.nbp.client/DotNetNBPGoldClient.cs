@@ -28,6 +28,10 @@ namespace dotnetnbpgold.nbp.client
                 throw new DotNetNBPGoldClientException("End date cannot be in the future."); // TODO: add propper exception
             }
 
+            if (endDate.Date < startDate.Date) {
+                throw new DotNetNBPGoldClientException("End date cannot be after start date."); // TODO: add propper exception
+            }
+
             if (startDate < new DateTime(2013, 1, 2))
             {
                 throw new DotNetNBPGoldClientException("Start date cannot be before 1st of January 2013"); // TODO: add propper exception

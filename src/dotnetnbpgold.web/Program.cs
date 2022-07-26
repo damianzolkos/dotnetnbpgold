@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using dotnetnbpgold.web.Services;
 using dotnetnbpgold.nbp.client.Extensions;
 

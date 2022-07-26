@@ -2,8 +2,24 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
 }
 
 main {
     flex: 1;
+}
+
+@media only screen and (min-width: 1024px)
+{
+    .page {
+        width: 60%;
+    }   
+}
+
+@media only screen and (max-width: 764px)
+{
+    .page {
+        width: 95%;
+    }   
 }

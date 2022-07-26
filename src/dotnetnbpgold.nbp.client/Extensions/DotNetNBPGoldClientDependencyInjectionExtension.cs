@@ -5,12 +5,13 @@ namespace dotnetnbpgold.nbp.client.Extensions
 {
     public static class DotNetNBPGoldClientDependencyInjectionExtension
     {
-        public static void AddDotNetNBPGoldClient(
+        public static IServiceCollection AddDotNetNBPGoldClient(
             this IServiceCollection services,
             Action<DotNetNBPGoldClientSettings> options = null) 
         {
            services.Configure(options);
            services.AddTransient<IDotNetNBPGoldClient, DotNetNBPGoldClient>();
+           return services;
         }
     }
 }

@@ -9,9 +9,11 @@ namespace dotnetnbpgold.nbp.client.Extensions
             this IServiceCollection services,
             Action<DotNetNBPGoldClientSettings> options = null) 
         {
-           services.Configure(options);
-           services.AddTransient<IDotNetNBPGoldClient, DotNetNBPGoldClient>();
-           return services;
+            if (options is not null) {
+                services.Configure(options);
+            }
+            services.AddTransient<IDotNetNBPGoldClient, DotNetNBPGoldClient>();
+            return services;
         }
     }
 }

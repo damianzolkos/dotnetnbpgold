@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddDotNetNBPGoldClient(o => { o.ApiUrl = "http://api.nbp.pl/api/cenyzlota/";});
+builder.Services.AddDotNetNBPGoldClient();
 builder.Services.AddTransient<IGoldPriceService, GoldPriceService>();
 
 var app = builder.Build();

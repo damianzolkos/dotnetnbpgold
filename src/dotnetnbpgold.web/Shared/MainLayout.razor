@@ -1,9 +1,22 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <main>
+<div class="page mt-5">
+    <header>
+        <h2 class="p-2 text-center optical-center">
+            <img src="gold-ingots.png">
+            <span>GOLD</span>
+        </h2>
+    </header>
+    <main>        
         <article class="content px-4">
             @Body
         </article>
     </main>
+    <footer class="py-3 mt-5" style="font-size: 0.8rem;">
+        <p class="text-center text-muted">
+            app is using <a href="https://api.nbp.pl/en.html">NBP Web API</a>,
+            <br>
+            and a gold icons created by <a href="https://www.flaticon.com/free-icons/gold" title="gold icons">Nikita Golubev - Flaticon</a>
+        </p>
+    </footer>
 </div>

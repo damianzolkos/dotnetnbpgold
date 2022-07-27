@@ -3,7 +3,7 @@ using dotnetnbpgold.nbp.client.Models.NBP.Responses;
 
 namespace dotnetnbpgold.web.Mappers
 {
-    public static class GoldPriceDateResponseMappers
+    public static class DatePriceDTOMapper
     {
         public static DatePriceDTO MapToDatePriceDTO(this NBPGoldDatePriceResponse response)
         {

@@ -1,0 +1,40 @@
+﻿@page "/list"
+
+<PageTitle>GOLD - List</PageTitle>
+
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Added at</th>
+      <th scope="col">Start date</th>
+      <th scope="col">End date</th>
+      <th scope="col">Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in list)
+    {
+        <tr>
+            <td>@item.AddedAt</td>
+            <td>@item.StartDate.ToShortDateString()</td>
+            <td>@item.EndDate.ToShortDateString()</td>
+            <td>@item.Average</td>
+        </tr>
+    }
+  </tbody>
+</table>
+</div>
+
+@inject IGoldPriceService GoldPriceService
+@using dotnetnbpgold.web.Services
+@using dotnetnbpgold.web.Models.ViewModels
+
+@code {
+    private IList<GoldPriceFormDBViewModel> list;
+
+    protected override async Task OnInitializedAsync()
+    {
+        list = await GoldPriceService.GetForListViewAsync();
+    }
+}

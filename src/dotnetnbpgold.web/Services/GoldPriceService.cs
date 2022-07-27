@@ -18,12 +18,6 @@ namespace dotnetnbpgold.web.Services
             _repository = repository;
         }
 
-        private async Task<IList<DatePriceDTO>> GetGoldPricesAsync(DateTime startDate, DateTime endDate)
-        {
-            var prices = await _nbpClient.GetGoldPricesAsync(startDate, endDate);
-            return prices.Select(p => p.MapToDatePriceDTO()).ToList();
-        }
-
         public async Task<GoldPriceViewModel> GetForViewAsync(DateTime startDate, DateTime endDate)
         {
             try
@@ -51,12 +45,23 @@ namespace dotnetnbpgold.web.Services
             }
         }
 
+        private async Task<IList<DatePriceDTO>> GetGoldPricesAsync(DateTime startDate, DateTime endDate)
+        {
+            var prices = await _nbpClient.GetGoldPricesAsync(startDate, endDate);
+            return prices.Select(p => p.MapToDatePriceDTO()).ToList();
+        }
+
+        public async Task<IList<GoldPriceFormDBViewModel>> GetForListViewAsync() {
+            var goldPricesFromDB = await _repository.GetAllAsync();
+            return goldPricesFromDB.Select(p => p.MapToGoldPriceDBViewModel()).ToList();
+        }
+
         private async Task AddToDatebaseAsync(DateTime startDate, DateTime endDate, decimal average)
         {
             var goldPriceDbModel = new GoldPrice()
             {
-                StartDate = startDate,
-                EndDate = endDate,
+                StartDate = startDate.Date,
+                EndDate = endDate.Date,
                 Average = average,
                 AddedAt = DateTime.Now
             };

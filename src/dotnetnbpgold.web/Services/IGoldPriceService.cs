@@ -10,5 +10,6 @@ namespace dotnetnbpgold.web.Services
     public interface IGoldPriceService
     {
         Task<GoldPriceViewModel> GetForViewAsync(DateTime startDate, DateTime endDate);
+        Task<IList<GoldPriceFormDBViewModel>> GetForListViewAsync();
     }
 }

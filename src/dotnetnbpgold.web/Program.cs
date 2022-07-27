@@ -13,9 +13,16 @@ builder.Services.AddDotNetNBPGoldClient();
 builder.Services.AddTransient<IGoldPriceRepository, GoldPriceRepository>();
 builder.Services.AddTransient<IGoldPriceService, GoldPriceService>();
 
-builder.Services.AddDbContext<DBContext>(opt => opt.UseInMemoryDatabase(databaseName: "DotNetNBPGold"));
+// builder.Services.AddDbContext<DBContext>(opt => opt.UseInMemoryDatabase(databaseName: "DotNetNBPGold"));
+builder.Services.AddDbContext<DBContext>(opt => opt.UseSqlite("Data Source=DataBase.db"));
 
 var app = builder.Build();
+
+using (var serviceScope = app.Services.GetService<IServiceScopeFactory>().CreateScope())
+{
+    var context = serviceScope.ServiceProvider.GetRequiredService<DBContext>();
+    context.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

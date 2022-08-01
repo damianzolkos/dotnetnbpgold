@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using dotnetnbpgold.nbp.client.Settings;
+using dotnetnbpgold.nbp.client.Models.Settings;
 
 namespace dotnetnbpgold.nbp.client.Extensions
 {

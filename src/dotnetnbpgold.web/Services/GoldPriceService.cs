@@ -15,12 +15,17 @@ namespace dotnetnbpgold.web.Services
         private readonly IDotNetNBPGoldClient _nbpClient;
         private readonly IGoldPriceRepository _repository;
         private readonly IFileService _fileService;
+        private readonly ILogger<GoldPriceService> _logger;
 
-        public GoldPriceService(IDotNetNBPGoldClient nbpClient, IGoldPriceRepository repository, IFileService fileService)
+        public GoldPriceService(IDotNetNBPGoldClient nbpClient,
+            IGoldPriceRepository repository,
+            IFileService fileService,
+            ILogger<GoldPriceService> logger)
         {
             _nbpClient = nbpClient;
             _repository = repository;
             _fileService = fileService;
+            _logger = logger;
         }
 
         public async Task<GoldPriceViewModel> GetForViewAsync(DateTime startDate, DateTime endDate)

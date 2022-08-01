@@ -1,6 +1,6 @@
 namespace dotnetnbpgold.web.Models.ViewModels
 {
-    public class GoldPriceFormDBViewModel
+    public class GoldPriceDBViewModel
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

@@ -14,7 +14,6 @@ builder.Services.AddTransient<IFileService, FileService>();
 builder.Services.AddTransient<IGoldPriceRepository, GoldPriceRepository>();
 builder.Services.AddTransient<IGoldPriceService, GoldPriceService>();
 
-// builder.Services.AddDbContext<DBContext>(opt => opt.UseInMemoryDatabase(databaseName: "DotNetNBPGold"));
 builder.Services.AddDbContext<DBContext>(opt => opt.UseSqlite("Data Source=DataBase.db"));
 
 var app = builder.Build();

@@ -5,7 +5,7 @@ namespace dotnetnbpgold.web.Mappers
 {
     public static class GoldPriceFormDBViewModelMapper
     {
-        public static GoldPriceFormDBViewModel MapToGoldPriceDBViewModel(this GoldPrice goldPrice)
+        public static GoldPriceDBViewModel MapToGoldPriceDBViewModel(this GoldPrice goldPrice)
         {
             return new()
             { 

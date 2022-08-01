@@ -6,6 +6,7 @@ using dotnetnbpgold.db.Repositories;
 using dotnetnbpgold.db.Entities;
 using System.Text.Json;
 using System.Globalization;
+using dotnetnbpgold.web.Models;
 
 namespace dotnetnbpgold.web.Services
 {
@@ -27,14 +28,11 @@ namespace dotnetnbpgold.web.Services
             try
             {
                 var prices = await GetGoldPricesAsync(startDate, endDate);
-                
-                // TODO: add null check and devision by zero check.
-                // maybe throw exception (?)
+
                 var startDateGoldPrice = prices.FirstOrDefault();
                 var endDateGoldPrice = prices.LastOrDefault();
                 var average = Math.Round(prices.Sum(x => x.Price) / prices.Count, 2);
 
-                // TODO: Create a new service for handling DB and JSON file data saving.
                 await AddToDatebaseAsync(startDate, endDate, average);
                 await AddToFileSystemAsync(startDate, endDate, average);
 
@@ -56,7 +54,7 @@ namespace dotnetnbpgold.web.Services
             return prices.Select(p => p.MapToDatePriceDTO()).ToList();
         }
 
-        public async Task<IList<GoldPriceFormDBViewModel>> GetForListViewAsync() {
+        public async Task<IList<GoldPriceDBViewModel>> GetForListViewAsync() {
             var goldPricesFromDB = await _repository.GetAllAsync();
             return goldPricesFromDB.Select(p => p.MapToGoldPriceDBViewModel()).ToList();
         }
@@ -76,15 +74,14 @@ namespace dotnetnbpgold.web.Services
 
         private async Task AddToFileSystemAsync(DateTime startDate, DateTime endDate, decimal average)
         {
-            var goldPriceDbModel = new GoldPrice()
+            var goldPriceFileModel = new GoldPriceFileModel()
             {
                 StartDate = startDate.Date,
                 EndDate = endDate.Date,
-                Average = average,
-                AddedAt = DateTime.Now
+                Average = average
             };
 
-            var goldPriceModelJsonString = JsonSerializer.Serialize(goldPriceDbModel);
+            var goldPriceModelJsonString = JsonSerializer.Serialize(goldPriceFileModel);
             var result  = await _fileService.SaveTextFileAsync(GetDirectoryName(), GetFileName(), goldPriceModelJsonString);
         }
 

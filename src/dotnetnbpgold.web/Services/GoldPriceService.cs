@@ -17,7 +17,8 @@ namespace dotnetnbpgold.web.Services
         private readonly IFileService _fileService;
         private readonly ILogger<GoldPriceService> _logger;
 
-        public GoldPriceService(IDotNetNBPGoldClient nbpClient,
+        public GoldPriceService(
+            IDotNetNBPGoldClient nbpClient,
             IGoldPriceRepository repository,
             IFileService fileService,
             ILogger<GoldPriceService> logger)
@@ -100,7 +101,7 @@ namespace dotnetnbpgold.web.Services
             };
 
             var goldPriceModelJsonString = JsonSerializer.Serialize(goldPriceFileModel);
-            var result  = await _fileService.SaveTextFileAsync(GetDirectoryName(), GetFileName(), goldPriceModelJsonString);
+            await _fileService.SaveTextFileAsync(GetDirectoryName(), GetFileName(), goldPriceModelJsonString);
             _logger.LogInformation("Succesfully saved to file.");
         }
 

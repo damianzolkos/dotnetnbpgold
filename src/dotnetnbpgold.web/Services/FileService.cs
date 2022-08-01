@@ -1,27 +1,34 @@
+using dotnetnbpgold.web.Models.Settings;
+
+using Microsoft.Extensions.Options;
+
 namespace dotnetnbpgold.web.Services
 {
     public class FileService : IFileService
     {
-        private const string _filesPath = "files";
         private readonly ILogger<FileService> _logger;
+        private readonly FileServiceSettings _settings;
 
-        public FileService(ILogger<FileService> logger)
+        public FileService(
+            ILogger<FileService> logger,
+            IOptions<FileServiceSettings> settings)
         {
             _logger = logger;
+            _settings = settings.Value;
         }
 
-        public async Task<bool> SaveTextFileAsync(string directoryName, string fileName, string content)
+        public async Task SaveTextFileAsync(string directoryName, string fileName, string content)
         {
-            string newFileDirecroryPath = _filesPath + Path.DirectorySeparatorChar + directoryName;
-            if (!Directory.Exists(newFileDirecroryPath)) {
+            string newFileDirecroryPath = Path.Combine(_settings.Path, directoryName);
+            if (!Directory.Exists(newFileDirecroryPath))
+            {
                 Directory.CreateDirectory(newFileDirecroryPath);
             }
-
-            var path = string.Join(Path.DirectorySeparatorChar, _filesPath, directoryName, fileName);
-            await File.WriteAllTextAsync(path, content);
+            
+            var filePath = Path.Combine(_settings.Path, directoryName, fileName);
+            await File.WriteAllTextAsync(filePath, content);
 
             _logger.LogInformation("File: {fileName} saved to: {directoryName}", fileName, newFileDirecroryPath);
-            return true;
         }
     }
 } 

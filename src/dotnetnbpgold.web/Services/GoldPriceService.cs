@@ -15,12 +15,17 @@ namespace dotnetnbpgold.web.Services
         private readonly IDotNetNBPGoldClient _nbpClient;
         private readonly IGoldPriceRepository _repository;
         private readonly IFileService _fileService;
+        private readonly ILogger<GoldPriceService> _logger;
 
-        public GoldPriceService(IDotNetNBPGoldClient nbpClient, IGoldPriceRepository repository, IFileService fileService)
+        public GoldPriceService(IDotNetNBPGoldClient nbpClient,
+            IGoldPriceRepository repository,
+            IFileService fileService,
+            ILogger<GoldPriceService> logger)
         {
             _nbpClient = nbpClient;
             _repository = repository;
             _fileService = fileService;
+            _logger = logger;
         }
 
         public async Task<GoldPriceViewModel> GetForViewAsync(DateTime startDate, DateTime endDate)
@@ -36,6 +41,7 @@ namespace dotnetnbpgold.web.Services
                 await AddToDatebaseAsync(startDate, endDate, average);
                 await AddToFileSystemAsync(startDate, endDate, average);
 
+                _logger.LogInformation("Gold prices retrieved. Start date: {startDate}, end date: {endDate}, average: {average}", startDate, endDate, average);
                 return new() {
                     StartDateGoldPrice = startDateGoldPrice,
                     EndDateGoldPrice = endDateGoldPrice,
@@ -44,6 +50,7 @@ namespace dotnetnbpgold.web.Services
             }
             catch (Exception e)
             {
+                _logger.LogWarning("Something went wrong while getting gold prices. Exception: {exceptionMessage}", e.Message);
                 return new() { ErrorMessage = e.Message };
             }
         }
@@ -56,7 +63,9 @@ namespace dotnetnbpgold.web.Services
 
         public async Task<IList<GoldPriceDBViewModel>> GetForListViewAsync() {
             var goldPricesFromDB = await _repository.GetAllAsync();
-            return goldPricesFromDB.Select(p => p.MapToGoldPriceDBViewModel()).ToList();
+            List<GoldPriceDBViewModel> goldPriceDBViewModels = goldPricesFromDB.Select(p => p.MapToGoldPriceDBViewModel()).ToList();
+            _logger.LogInformation("Gold prices retrieved form DB.");
+            return goldPriceDBViewModels;
         }
 
         private async Task AddToDatebaseAsync(DateTime startDate, DateTime endDate, decimal average)
@@ -70,6 +79,7 @@ namespace dotnetnbpgold.web.Services
             };
 
             await _repository.AddAsync(goldPriceDbModel);
+            _logger.LogInformation("Succesfully saved to database, with ID: {id}", goldPriceDbModel.Id);
         }
 
         private async Task AddToFileSystemAsync(DateTime startDate, DateTime endDate, decimal average)
@@ -83,6 +93,7 @@ namespace dotnetnbpgold.web.Services
 
             var goldPriceModelJsonString = JsonSerializer.Serialize(goldPriceFileModel);
             var result  = await _fileService.SaveTextFileAsync(GetDirectoryName(), GetFileName(), goldPriceModelJsonString);
+            _logger.LogInformation("Succesfully saved to file.");
         }
 
         private string GetDirectoryName() {

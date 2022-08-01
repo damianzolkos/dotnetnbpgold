@@ -12,7 +12,8 @@ namespace dotnetnbpgold.nbp.client
     {
         private readonly DotNetNBPGoldClientSettings _settings;
 
-        public DotNetNBPGoldClient(IOptions<DotNetNBPGoldClientSettings> settings)
+        public DotNetNBPGoldClient(
+            IOptions<DotNetNBPGoldClientSettings> settings)
         {
             _settings = settings.Value;
         }

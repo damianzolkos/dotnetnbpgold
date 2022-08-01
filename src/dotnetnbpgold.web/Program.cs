@@ -3,8 +3,15 @@ using dotnetnbpgold.nbp.client.Extensions;
 using dotnetnbpgold.db;
 using Microsoft.EntityFrameworkCore;
 using dotnetnbpgold.db.Repositories;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add logging.
+builder.Logging.ClearProviders();
+Serilog.ILogger logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+builder.Logging.AddSerilog(logger);
+builder.Services.AddSingleton(logger);
 
 // Add services to the container.
 builder.Services.AddRazorPages();

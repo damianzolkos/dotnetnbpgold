@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj": {}
+    "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj": {}
   },
   "projects": {
-    "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj": {
+    "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj",
+        "projectUniqueName": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj",
         "projectName": "dotnetnbpgold.tests",
-        "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj",
+        "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj",
         "packagesPath": "/Users/damianzolkos/.nuget/packages/",
-        "outputPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/dotnetnbpgold.tests/obj/",
+        "outputPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/damianzolkos/.nuget/NuGet/NuGet.Config"

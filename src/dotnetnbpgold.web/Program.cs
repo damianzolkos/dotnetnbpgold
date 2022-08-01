@@ -23,13 +23,13 @@ builder.Services.AddTransient<IGoldPriceRepository, GoldPriceRepository>();
 builder.Services.AddTransient<IGoldPriceService, GoldPriceService>();
 
 // Add database.
-builder.Services.AddDbContext<DBContext>(opt => opt.UseSqlite("Data Source=DataBase.db"));
+builder.Services.AddDbContext<DotNetNbpGoldDbContext>(opt => opt.UseSqlite("Data Source=DataBase.db"));
 
 var app = builder.Build();
 
 using (var serviceScope = app.Services.GetService<IServiceScopeFactory>().CreateScope())
 {
-    var context = serviceScope.ServiceProvider.GetRequiredService<DBContext>();
+    var context = serviceScope.ServiceProvider.GetRequiredService<DotNetNbpGoldDbContext>();
     context.Database.EnsureCreated();
 }
 

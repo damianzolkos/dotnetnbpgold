@@ -20,6 +20,14 @@ namespace dotnetnbpgold.nbp.client
 
         public async Task<List<NBPGoldDatePriceResponse>> GetGoldPricesAsync(DateTime startDate, DateTime endDate)
         {
+            ValidateRequest(startDate, endDate);
+            string url = GetGetGoldPricesUrl(startDate, endDate);
+            List<NBPGoldDatePriceResponse> goldPrices = await HttpHelpers.HttpGetAsync<List<NBPGoldDatePriceResponse>>(url);
+            return goldPrices;
+        }
+
+        private void ValidateRequest(DateTime startDate, DateTime endDate)
+        {
             if (startDate.Date > DateTime.Now.Date)
             {
                 throw new DotNetNBPGoldClientException("Start date cannot be in the future.");
@@ -45,10 +53,6 @@ namespace dotnetnbpgold.nbp.client
             {
                 throw new DotNetNBPGoldClientException($"Maximum period is 93 days, you selected {days} days");
             }
-
-            string url = GetGetGoldPricesUrl(startDate, endDate);
-            List<NBPGoldDatePriceResponse> goldPrices = await HttpHelpers.HttpGetAsync<List<NBPGoldDatePriceResponse>>(url);
-            return goldPrices;
         }
 
         private string GetGetGoldPricesUrl(DateTime startDate, DateTime endDate)

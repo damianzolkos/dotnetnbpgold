@@ -34,8 +34,16 @@ namespace dotnetnbpgold.web.Services
             {
                 var prices = await GetGoldPricesAsync(startDate, endDate);
 
+                if (prices.Count == 0)
+                {
+                    var message = "None gold prices for selected period were find.";
+                    _logger.LogDebug(message);
+                    return new() { ErrorMessage = message };
+                }
+
                 var startDateGoldPrice = prices.FirstOrDefault();
                 var endDateGoldPrice = prices.LastOrDefault();
+
                 var average = Math.Round(prices.Sum(x => x.Price) / prices.Count, 2);
 
                 await AddToDatebaseAsync(startDate, endDate, average);

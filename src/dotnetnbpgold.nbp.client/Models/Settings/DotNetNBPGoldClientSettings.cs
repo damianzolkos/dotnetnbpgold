@@ -1,4 +1,4 @@
-namespace dotnetnbpgold.nbp.client.Settings
+namespace dotnetnbpgold.nbp.client.Models.Settings
 {
     public class DotNetNBPGoldClientSettings
     {

@@ -2,8 +2,7 @@
 using dotnetnbpgold.nbp.client.Extensions;
 using dotnetnbpgold.nbp.client.Helpers;
 using dotnetnbpgold.nbp.client.Models.NBP.Responses;
-using dotnetnbpgold.nbp.client.Settings;
-
+using dotnetnbpgold.nbp.client.Models.Settings;
 using Microsoft.Extensions.Options;
 
 namespace dotnetnbpgold.nbp.client
@@ -40,7 +39,7 @@ namespace dotnetnbpgold.nbp.client
 
             if (endDate.Date < startDate.Date)
             {
-                throw new DotNetNBPGoldClientException("End date cannot be after start date.");
+                throw new DotNetNBPGoldClientException("End date cannot be before start date.");
             }
 
             if (startDate.Date < _settings.MinDate)

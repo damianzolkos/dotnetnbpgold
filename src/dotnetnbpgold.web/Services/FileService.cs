@@ -1,5 +1,4 @@
 using dotnetnbpgold.web.Models.Settings;
-
 using Microsoft.Extensions.Options;
 
 namespace dotnetnbpgold.web.Services

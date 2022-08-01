@@ -1,7 +1,8 @@
-namespace dotnetnbpgold.tests;
 using dotnetnbpgold.nbp.client;
 using dotnetnbpgold.nbp.client.Models.Settings;
 using Microsoft.Extensions.Options;
+
+namespace dotnetnbpgold.tests;
 
 public class NbpClientTests
 {
@@ -28,7 +29,7 @@ public class NbpClientTests
     }
 
     [Fact]
-    public void DotNetNBPGoldClient_ShouldThrow_Exception_When_EndDateIsInTheFuture()
+    public void DotNetNBPGoldClient_ShouldThrowException_When_EndDateIsInTheFuture()
     {
         // Arrange.
         var temp = true;
@@ -41,7 +42,7 @@ public class NbpClientTests
     }
 
     [Fact]
-    public void DotNetNBPGoldClient_ShouldThrow_Exception_When_EndDateIsBeforeStartDate()
+    public void DotNetNBPGoldClient_ShouldThrowException_When_EndDateIsBeforeStartDate()
     {
         // Arrange.
         var temp = true;
@@ -54,7 +55,7 @@ public class NbpClientTests
     }
 
     [Fact]
-    public void DotNetNBPGoldClient_ShouldThrow_Exception_When_EndDateIsBeforeMinimumDate()
+    public void DotNetNBPGoldClient_ShouldThrowException_When_EndDateIsBeforeMinimumDate()
     {
         // Arrange.
         var temp = true;
@@ -67,7 +68,20 @@ public class NbpClientTests
     }
 
     [Fact]
-    public void DotNetNBPGoldClient_ShouldThrow_Exception_When_PeriodIsLongerThanMaximumPeriodDays()
+    public void DotNetNBPGoldClient_ShouldThrowException_When_PeriodIsLongerThanMaximumPeriodDays()
+    {
+        // Arrange.
+        var temp = true;
+        DateTime startDate = new DateTime(2022, 1, 1);
+        DateTime endDate = new DateTime(2022, 1, 1);
+
+        // Act.
+
+        // Assert.
+    }
+
+    [Fact]
+    public void DotNetNBPGoldClient_ShouldThrowException_When_NbpApiReturnsNot200StatusCode()
     {
         // Arrange.
         var temp = true;

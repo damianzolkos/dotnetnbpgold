@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using dotnetnbpgold.web.Models.DTOs;
 
 namespace dotnetnbpgold.web.Models.ViewModels

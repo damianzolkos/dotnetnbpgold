@@ -9,7 +9,8 @@ namespace dotnetnbpgold.web.Extensions
             this IServiceCollection services,
             Action<FileServiceSettings> options = null) 
         {
-            if (options is not null) {
+            if (options is not null)
+            {
                 services.Configure(options);
             }
             services.AddTransient<IFileService, FileService>();

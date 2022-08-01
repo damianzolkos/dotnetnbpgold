@@ -100,7 +100,7 @@ namespace dotnetnbpgold.web.Services
             };
 
             var goldPriceModelJsonString = JsonSerializer.Serialize(goldPriceFileModel);
-            var result  = await _fileService.SaveTextFileAsync(GetDirectoryName(), GetFileName(), goldPriceModelJsonString);
+            await _fileService.SaveTextFileAsync(GetDirectoryName(), GetFileName(), goldPriceModelJsonString);
             _logger.LogInformation("Succesfully saved to file.");
         }
 

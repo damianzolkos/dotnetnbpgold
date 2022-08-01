@@ -4,6 +4,7 @@ using dotnetnbpgold.db;
 using Microsoft.EntityFrameworkCore;
 using dotnetnbpgold.db.Repositories;
 using Serilog;
+using dotnetnbpgold.web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,10 +18,11 @@ builder.Services.AddSingleton(logger);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddDotNetNBPGoldClient();
-builder.Services.AddTransient<IFileService, FileService>();
+builder.Services.AddFileService();
 builder.Services.AddTransient<IGoldPriceRepository, GoldPriceRepository>();
 builder.Services.AddTransient<IGoldPriceService, GoldPriceService>();
 
+// Add database.
 builder.Services.AddDbContext<DBContext>(opt => opt.UseSqlite("Data Source=DataBase.db"));
 
 var app = builder.Build();

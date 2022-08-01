@@ -66,8 +66,21 @@ public class NbpClientTests
         // Assert.
     }
 
-        [Fact]
+    [Fact]
     public void DotNetNBPGoldClient_ShouldThrow_Exception_When_PeriodIsLongerThanMaximumPeriodDays()
+    {
+        // Arrange.
+        var temp = true;
+        DateTime startDate = new DateTime(2022, 1, 1);
+        DateTime endDate = new DateTime(2022, 1, 1);
+
+        // Act.
+
+        // Assert.
+    }
+
+    [Fact]
+    public void DotNetNBPGoldClient_ShouldReturn_ListOfNBPGoldDatePriceResponse()
     {
         // Arrange.
         var temp = true;

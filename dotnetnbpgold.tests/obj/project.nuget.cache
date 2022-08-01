@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zxV1qiRbpa59XYJ1ED1VYh6x+Si6L7AAchsU7+F3NBszUpC81tQ+s2571R3RyABVcWMwPkYFIDT5FMhwnN7KcA==",
+  "dgSpecHash": "geyw0d8tvGDqAGybujznrSIu07czbDqKog2yzInF7t9XOo3lpRfN80tMjTFWRgg/CP3gvWZY75fPCDKtk2ftPA==",
   "success": true,
-  "projectFilePath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.web.unit/dotnetnbpgold.web.unit.csproj",
+  "projectFilePath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj",
   "expectedPackageFiles": [
     "/Users/damianzolkos/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/microsoft.codecoverage/17.1.0/microsoft.codecoverage.17.1.0.nupkg.sha512",

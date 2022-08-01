@@ -1,4 +1,4 @@
-namespace dotnetnbpgold.nbp.client.unit;
+namespace dotnetnbpgold.tests;
 
 public class UnitTest1
 {

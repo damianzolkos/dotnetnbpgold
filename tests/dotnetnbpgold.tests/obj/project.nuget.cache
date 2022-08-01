@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iA3Q4iJ//EYBX7EAI4DMV+V8rTnqYcY/ECpr/ulSLhw8T1FsCkT+pQQp1XVx8MF0XN7pSdc0vyKz7OqwV6tK1Q==",
+  "dgSpecHash": "bjHNIxBKWRW470SAr9z+yFoxubIfRBASnFsgnQgKvx6Ox0ficXCgkoMT4LxAWZXvePkjVcHM6lpapfIL9n9x3Q==",
   "success": true,
   "projectFilePath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,10 @@
     "/Users/damianzolkos/.nuget/packages/fluentassertions/6.7.0/fluentassertions.6.7.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/microsoft.codecoverage/17.1.0/microsoft.codecoverage.17.1.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",
+    "/Users/damianzolkos/.nuget/packages/microsoft.extensions.dependencyinjection/6.0.0/microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "/Users/damianzolkos/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "/Users/damianzolkos/.nuget/packages/microsoft.extensions.options/6.0.0/microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "/Users/damianzolkos/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/microsoft.net.test.sdk/17.1.0/microsoft.net.test.sdk.17.1.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -71,6 +75,7 @@
     "/Users/damianzolkos/.nuget/packages/system.reflection.typeextensions/4.3.0/system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/system.resources.resourcemanager/4.3.0/system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/Users/damianzolkos/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/system.runtime.extensions/4.3.0/system.runtime.extensions.4.3.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/system.runtime.handles/4.3.0/system.runtime.handles.4.3.0.nupkg.sha512",
     "/Users/damianzolkos/.nuget/packages/system.runtime.interopservices/4.3.0/system.runtime.interopservices.4.3.0.nupkg.sha512",

@@ -9,7 +9,9 @@ namespace dotnetnbpgold.web.Services
         private readonly ILogger<FileService> _logger;
         private readonly FileServiceSettings _settings;
 
-        public FileService(ILogger<FileService> logger, IOptions<FileServiceSettings> settings)
+        public FileService(
+            ILogger<FileService> logger,
+            IOptions<FileServiceSettings> settings)
         {
             _logger = logger;
             _settings = settings.Value;

@@ -17,7 +17,8 @@ namespace dotnetnbpgold.web.Services
         private readonly IFileService _fileService;
         private readonly ILogger<GoldPriceService> _logger;
 
-        public GoldPriceService(IDotNetNBPGoldClient nbpClient,
+        public GoldPriceService(
+            IDotNetNBPGoldClient nbpClient,
             IGoldPriceRepository repository,
             IFileService fileService,
             ILogger<GoldPriceService> logger)

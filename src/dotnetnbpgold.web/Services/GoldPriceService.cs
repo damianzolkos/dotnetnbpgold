@@ -59,7 +59,7 @@ namespace dotnetnbpgold.web.Services
             }
             catch (Exception e)
             {
-                _logger.LogWarning("Something went wrong while getting gold prices. Exception: {{exceptionMessage}}", e.Message);
+                _logger.LogWarning("Something went wrong while getting gold prices. Exception message: {exceptionMessage}", e.Message);
                 return new() { ErrorMessage = e.Message };
             }
         }

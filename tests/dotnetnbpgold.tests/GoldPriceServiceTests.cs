@@ -37,7 +37,7 @@ namespace dotnetnbpgold.tests
             result.StartDateGoldPrice.Should().BeNull();
             result.EndDateGoldPrice.Should().BeNull();
             result.Average.Should().Be(0);
-            result.ErrorMessage.Should().Be("None gold prices for selected period were find.");
+            result.ErrorMessage.Should().Be("No gold prices for the selected period were found.");
         }   
 
         [Fact]

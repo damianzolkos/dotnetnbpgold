@@ -29,28 +29,28 @@ namespace dotnetnbpgold.nbp.client
         {
             if (startDate.Date > DateTime.Now.Date)
             {
-                throw new DotNetNBPGoldClientException("Start date cannot be in the future.");
+                throw new DotNetNBPGoldClientException("The start date cannot be in the future.");
             }
 
             if (endDate.Date > DateTime.Now.Date)
             {
-                throw new DotNetNBPGoldClientException("End date cannot be in the future.");
+                throw new DotNetNBPGoldClientException("The end date cannot be in the future.");
             }
 
             if (endDate.Date < startDate.Date)
             {
-                throw new DotNetNBPGoldClientException("End date cannot be before start date.");
+                throw new DotNetNBPGoldClientException("The end date cannot be before the start date.");
             }
 
             if (startDate.Date < _settings.MinDate)
             {
-                throw new DotNetNBPGoldClientException("Start date cannot be before 1st of January 2013");
+                throw new DotNetNBPGoldClientException("The start date cannot be before the 1st of January 2013");
             }
 
             int days = (endDate - startDate).Days;
             if (days > _settings.MaxDaysPeriod)
             {
-                throw new DotNetNBPGoldClientException($"Maximum period is 93 days, you selected {days} days");
+                throw new DotNetNBPGoldClientException($"The maximum period is 93 days, you selected {days} days.");
             }
         }
 

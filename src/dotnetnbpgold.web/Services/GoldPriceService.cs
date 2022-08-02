@@ -37,7 +37,7 @@ namespace dotnetnbpgold.web.Services
 
                 if (prices.Count == 0)
                 {
-                    var message = "None gold prices for selected period were find.";
+                    var message = "No gold prices for the selected period were found.";
                     _logger.LogDebug(message);
                     return new() { ErrorMessage = message };
                 }

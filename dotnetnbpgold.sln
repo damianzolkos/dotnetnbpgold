@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetnbpgold.nbp.client", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetnbpgold.db", "src\dotnetnbpgold.db\dotnetnbpgold.db.csproj", "{15C387B3-370A-4F0D-B70D-08026ED8EF43}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E0878454-2CC9-41EF-A776-30FB5EB365FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetnbpgold.tests", "tests\dotnetnbpgold.tests\dotnetnbpgold.tests.csproj", "{6782CD15-8CEF-45E8-8E9E-1878D3A36524}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +36,15 @@ Global
 		{15C387B3-370A-4F0D-B70D-08026ED8EF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15C387B3-370A-4F0D-B70D-08026ED8EF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15C387B3-370A-4F0D-B70D-08026ED8EF43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6782CD15-8CEF-45E8-8E9E-1878D3A36524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6782CD15-8CEF-45E8-8E9E-1878D3A36524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6782CD15-8CEF-45E8-8E9E-1878D3A36524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6782CD15-8CEF-45E8-8E9E-1878D3A36524}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AE6799A7-9671-433E-8083-C0262D1EED62} = {D8AA864A-34CD-4EBC-A200-24005C7C2FB9}
 		{AF0F7AB4-E6B1-42FD-B855-10A8F310236C} = {D8AA864A-34CD-4EBC-A200-24005C7C2FB9}
 		{15C387B3-370A-4F0D-B70D-08026ED8EF43} = {D8AA864A-34CD-4EBC-A200-24005C7C2FB9}
+		{6782CD15-8CEF-45E8-8E9E-1878D3A36524} = {E0878454-2CC9-41EF-A776-30FB5EB365FA}
 	EndGlobalSection
 EndGlobal

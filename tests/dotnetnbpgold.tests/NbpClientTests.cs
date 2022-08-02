@@ -1,8 +1,6 @@
 using dotnetnbpgold.nbp.client;
 using dotnetnbpgold.nbp.client.Models.Settings;
 using dotnetnbpgold.nbp.client.Exceptions;
-using MockHttp;
-using System.Net;
 
 namespace dotnetnbpgold.tests;
 

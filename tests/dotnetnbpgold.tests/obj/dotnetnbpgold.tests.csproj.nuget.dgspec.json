@@ -4,6 +4,64 @@
     "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj": {}
   },
   "projects": {
+    "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/dotnetnbpgold.db.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/dotnetnbpgold.db.csproj",
+        "projectName": "dotnetnbpgold.db",
+        "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/dotnetnbpgold.db.csproj",
+        "packagesPath": "/Users/damianzolkos/.nuget/packages/",
+        "outputPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/damianzolkos/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.nbp.client/dotnetnbpgold.nbp.client.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -66,6 +124,86 @@
         }
       }
     },
+    "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.web/dotnetnbpgold.web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.web/dotnetnbpgold.web.csproj",
+        "projectName": "dotnetnbpgold.web",
+        "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.web/dotnetnbpgold.web.csproj",
+        "packagesPath": "/Users/damianzolkos/.nuget/packages/",
+        "outputPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.web/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/damianzolkos/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/dotnetnbpgold.db.csproj": {
+                "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/dotnetnbpgold.db.csproj"
+              },
+              "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.nbp.client/dotnetnbpgold.nbp.client.csproj": {
+                "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.nbp.client/dotnetnbpgold.nbp.client.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Serilog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/tests/dotnetnbpgold.tests/dotnetnbpgold.tests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -88,8 +226,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/dotnetnbpgold.db.csproj": {
+                "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.db/dotnetnbpgold.db.csproj"
+              },
               "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.nbp.client/dotnetnbpgold.nbp.client.csproj": {
                 "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.nbp.client/dotnetnbpgold.nbp.client.csproj"
+              },
+              "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.web/dotnetnbpgold.web.csproj": {
+                "projectPath": "/Users/damianzolkos/Desktop/Magazyn/Projekty/dotnetnbpgold/src/dotnetnbpgold.web/dotnetnbpgold.web.csproj"
               }
             }
           }
@@ -107,6 +251,10 @@
             "FluentAssertions": {
               "target": "Package",
               "version": "[6.7.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.1, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",

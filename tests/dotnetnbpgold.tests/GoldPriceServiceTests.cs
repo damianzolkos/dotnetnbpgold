@@ -1,7 +1,9 @@
+using dotnetnbpgold.db.Entities;
 using dotnetnbpgold.db.Repositories;
 using dotnetnbpgold.nbp.client;
 using dotnetnbpgold.nbp.client.Models.NBP.Responses;
 using dotnetnbpgold.web.Services;
+using dotnetnbpgold.web.Models.ViewModels;
 using Microsoft.Extensions.Logging;
 using NSubstitute.ExceptionExtensions;
 
@@ -18,10 +20,13 @@ namespace dotnetnbpgold.tests
         public GoldPriceServiceTests()
         {
             _sut = new GoldPriceService(_nbpClientMock, _goldPriceRepositoryMock, _fileServiceMock, _loggerMock);
+
+            _fileServiceMock.SaveTextFileAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>());
+            _goldPriceRepositoryMock.AddAsync(Arg.Any<GoldPrice>());
         }
 
         [Fact]
-        public async Task DotNetNBPGoldClient_ShouldReturn_Message_When_ThereIsZeroGoldPrices()
+        public async Task GoldPriceService_GetGoldPricesAsync_ShouldReturn_Message_When_ThereIsZeroGoldPrices()
         {
             // Arrange.
             DateTime startDate = DateTime.Now.AddDays(10);
@@ -41,7 +46,7 @@ namespace dotnetnbpgold.tests
         }   
 
         [Fact]
-        public async Task DotNetNBPGoldClient_ShouldReturn_Response_When_ThereAreGoldPrices()
+        public async Task GoldPriceService_GetGoldPricesAsync_ShouldReturn_Response_When_ThereAreGoldPrices()
         {
             // Arrange.
             DateTime startDate = DateTime.Now.AddDays(-10);
@@ -69,7 +74,7 @@ namespace dotnetnbpgold.tests
         } 
 
         [Fact]
-        public async Task DotNetNBPGoldClient_ShouldReturn_ErrorMessage_When_SomethingWasWrong()
+        public async Task GoldPriceService_GetGoldPricesAsync_ShouldReturn_ErrorMessage_When_SomethingWasWrong()
         {
             // Arrange.
             DateTime startDate = DateTime.Now.AddDays(-10);
@@ -83,6 +88,27 @@ namespace dotnetnbpgold.tests
             // Assert.
             result.ErrorMessage.Should().NotBeNull();
             result.ErrorMessage.Should().NotBeNullOrEmpty();
+        }
+
+        [Fact]
+        public async Task GoldPriceService_GetForListViewAsync_ShouldReturn_Response_When_ThereAreGoldPricesInDB()
+        {
+            // Arrange.
+            var goldPricesFromDB = new List<GoldPrice>()
+            { 
+                new GoldPrice() { EndDate = DateTime.Now, StartDate = DateTime.Now.AddDays(-1), Average = 100, AddedAt = DateTime.Now.AddHours(-1), Id = 1 },
+                new GoldPrice() { EndDate = DateTime.Now, StartDate = DateTime.Now.AddDays(-2), Average = 200, AddedAt = DateTime.Now.AddHours(-2), Id = 2 },
+                new GoldPrice() { EndDate = DateTime.Now, StartDate = DateTime.Now.AddDays(-3), Average = 300, AddedAt = DateTime.Now.AddHours(-3), Id = 3 },
+            };
+
+            _goldPriceRepositoryMock.GetAllAsync().Returns(goldPricesFromDB);
+
+            // Act.
+            var result = await _sut.GetForListViewAsync();
+
+            // Assert.
+            result.Should().NotBeNull();
+            result.Count.Should().Be(goldPricesFromDB.Count);
         } 
     }
 }

@@ -1,6 +1,6 @@
 using dotnetnbpgold.nbp.client;
 using dotnetnbpgold.nbp.client.Models.Settings;
-using Microsoft.Extensions.Options;
+using dotnetnbpgold.nbp.client.Exceptions;
 
 namespace dotnetnbpgold.tests;
 
@@ -23,8 +23,10 @@ public class NbpClientTests
         DateTime endDate = DateTime.Now.AddDays(5);
 
         // Act.
+        var result = async () => await _sut.GetGoldPricesAsync(startDate, endDate);
 
         // Assert.
+        result.Should().ThrowAsync<DotNetNBPGoldClientException>();
     }
 
     [Fact]
@@ -35,8 +37,10 @@ public class NbpClientTests
         DateTime endDate = DateTime.Now.AddDays(5);
 
         // Act.
+        var result = async () => await _sut.GetGoldPricesAsync(startDate, endDate);
 
         // Assert.
+        result.Should().ThrowAsync<DotNetNBPGoldClientException>();
     }
 
     [Fact]
@@ -47,8 +51,10 @@ public class NbpClientTests
         DateTime endDate = DateTime.Now.AddDays(-20);
 
         // Act.
+        var result = async () => await _sut.GetGoldPricesAsync(startDate, endDate);
 
         // Assert.
+        result.Should().ThrowAsync<DotNetNBPGoldClientException>();
     }
 
     [Fact]
@@ -59,8 +65,10 @@ public class NbpClientTests
         DateTime endDate = new DateTime(1990, 1, 1);
 
         // Act.
+        var result = async () => await _sut.GetGoldPricesAsync(startDate, endDate);
 
         // Assert.
+        result.Should().ThrowAsync<DotNetNBPGoldClientException>();
     }
 
     [Fact]
@@ -71,8 +79,10 @@ public class NbpClientTests
         DateTime endDate = DateTime.Now;
 
         // Act.
+        var result = async () => await _sut.GetGoldPricesAsync(startDate, endDate);
 
         // Assert.
+        result.Should().ThrowAsync<DotNetNBPGoldClientException>();
     }
 
     [Fact]
@@ -83,19 +93,9 @@ public class NbpClientTests
         DateTime endDate = DateTime.Now;
 
         // Act.
+        var result = async () => await _sut.GetGoldPricesAsync(startDate, endDate);
 
         // Assert.
-    }
-
-    [Fact]
-    public void DotNetNBPGoldClient_ShouldReturn_ListOfNBPGoldDatePriceResponse()
-    {
-        // Arrange.
-        DateTime startDate = DateTime.Now.AddDays(-10);
-        DateTime endDate = DateTime.Now;
-
-        // Act.
-
-        // Assert.
+        result.Should().ThrowAsync<DotNetNBPGoldClientException>();
     }
 }

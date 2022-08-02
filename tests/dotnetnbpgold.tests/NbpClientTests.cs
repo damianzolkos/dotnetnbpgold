@@ -1,18 +1,21 @@
 using dotnetnbpgold.nbp.client;
 using dotnetnbpgold.nbp.client.Models.Settings;
 using dotnetnbpgold.nbp.client.Exceptions;
+using MockHttp;
+using System.Net;
 
 namespace dotnetnbpgold.tests;
 
 public class NbpClientTests
 {
     private readonly DotNetNBPGoldClient _sut;
+    private readonly IOptions<DotNetNBPGoldClientSettings> _options;
     public NbpClientTests()
     {
         DotNetNBPGoldClientSettings mockOptions = new DotNetNBPGoldClientSettings() { };
-        IOptions<DotNetNBPGoldClientSettings> options = Options.Create(mockOptions);
+        _options = Options.Create(mockOptions);
 
-        _sut = new DotNetNBPGoldClient(options);
+        _sut = new DotNetNBPGoldClient(_options);
     }
 
     [Fact]
@@ -76,20 +79,6 @@ public class NbpClientTests
     {
         // Arrange.
         DateTime startDate = DateTime.Now.AddDays(-91);
-        DateTime endDate = DateTime.Now;
-
-        // Act.
-        var result = async () => await _sut.GetGoldPricesAsync(startDate, endDate);
-
-        // Assert.
-        result.Should().ThrowAsync<DotNetNBPGoldClientException>();
-    }
-
-    [Fact]
-    public void DotNetNBPGoldClient_ShouldThrowException_When_NbpApiReturnsNot200StatusCode()
-    {
-        // Arrange.
-        DateTime startDate = DateTime.Now.AddDays(-10);
         DateTime endDate = DateTime.Now;
 
         // Act.

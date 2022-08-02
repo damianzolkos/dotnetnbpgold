@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnetnbpgold.db
 {
-    public class DBContext : DbContext
+    public class DotNetNbpGoldDbContext : DbContext
     {
-        public DBContext(DbContextOptions<DBContext> options)
+        public DotNetNbpGoldDbContext(DbContextOptions<DotNetNbpGoldDbContext> options)
             : base(options)
         {
         }

@@ -5,10 +5,10 @@ namespace dotnetnbpgold.db.Repositories
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : Entity
     {
-        private protected readonly DBContext _context;  
+        private protected readonly DotNetNbpGoldDbContext _context;  
         private DbSet<T> _entities;
 
-        public GenericRepository(DBContext context)
+        public GenericRepository(DotNetNbpGoldDbContext context)
         {  
             _context = context;  
             _entities = context.Set<T>();  

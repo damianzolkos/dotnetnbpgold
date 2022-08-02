@@ -10,18 +10,21 @@ namespace dotnetnbpgold.nbp.client
     public class DotNetNBPGoldClient : IDotNetNBPGoldClient
     {
         private readonly DotNetNBPGoldClientSettings _settings;
+        private readonly HttpClient _httpClient;
 
         public DotNetNBPGoldClient(
-            IOptions<DotNetNBPGoldClientSettings> settings)
+            IOptions<DotNetNBPGoldClientSettings> settings,
+            HttpClient httpClient)
         {
             _settings = settings.Value;
+            _httpClient = httpClient;
         }
 
         public async Task<List<NBPGoldDatePriceResponse>> GetGoldPricesAsync(DateTime startDate, DateTime endDate)
         {
             ValidateRequest(startDate, endDate);
             string url = GetGetGoldPricesUrl(startDate, endDate);
-            List<NBPGoldDatePriceResponse> goldPrices = await HttpHelpers.HttpGetAsync<List<NBPGoldDatePriceResponse>>(url);
+            List<NBPGoldDatePriceResponse> goldPrices = await HttpHelpers.HttpGetAsync<List<NBPGoldDatePriceResponse>>(url, _httpClient);
             return goldPrices;
         }
 

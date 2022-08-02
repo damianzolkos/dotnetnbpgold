@@ -13,6 +13,8 @@ namespace dotnetnbpgold.nbp.client.Extensions
             {
                 services.Configure(options);
             }
+
+            services.AddHttpClient();
             services.AddTransient<IDotNetNBPGoldClient, DotNetNBPGoldClient>();
             return services;
         }
